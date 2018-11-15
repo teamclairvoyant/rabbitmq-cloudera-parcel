@@ -4,8 +4,6 @@ echo "Installing Erlang..."
 
 YUMOPTS="-y -e1 -d1"
 
-rpm -e erlang
-
 exit_code=1
 retry_count=0
 first_time=1
@@ -40,8 +38,6 @@ done
 if [[ $exit_code == 0 ]]; then
 	echo "Successfully installed Erlang ${erlang_version}."
 fi
-
-rpm -e rabbitmq-server.noarch
 
 exit_code=1
 retry_count=0
@@ -111,7 +107,9 @@ else
 	echo "Unsupported operating system"; 
 fi
 
-cp -rf meta ${airflow_parcel_name}/
+cp -rf meta ${PARCEL_NAME}/
+
+sed -i "4s/.*/  \"version\": \"${PARCEL_NAME}\",/" ${PARCEL_NAME}/meta/parcel.json
 
 tar zcvf ${PARCEL_NAME}-${dist_suffix}.parcel ${PARCEL_NAME}
 
