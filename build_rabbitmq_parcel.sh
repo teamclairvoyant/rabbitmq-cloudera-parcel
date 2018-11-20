@@ -109,10 +109,10 @@ fi
 
 cp -rf meta ${PARCEL_NAME}/
 
-sed -i "4s/.*/  \"version\": \"${PARCEL_NAME}\",/" ${PARCEL_NAME}/meta/parcel.json
+sed -i "4s/.*/  \"version\": \"${parcel_version}-${rabbitmq_version}-${erlang_version}\",/" ${PARCEL_NAME}/meta/parcel.json
 sed -i '21s+.*+ROOTDIR=${RABBITMQ_DIR}/usr/lib64/erlang+' ${PARCEL_NAME}/usr/lib64/erlang/bin/erl
-sed -i '19s+.*+SYS_PREFIX=${RABBITMQ_DIR}+' ${PARCEL_NAME}/usr/lib/rabbitmq/bin/rabbitmq-defaults
-sed -i '22s+.*+ERL_DIR=${RABBITMQ_DIR}/usr/lib64/erlang/bin/+' ${PARCEL_NAME}/usr/lib/rabbitmq/bin/rabbitmq-defaults
+sed -i '19s+.*+SYS_PREFIX=${RABBITMQ_DIR}+' ${PARCEL_NAME}/usr/lib/rabbitmq/lib/rabbitmq_server-3.7.9/sbin/rabbitmq-defaults
+sed -i '22s+.*+ERL_DIR=${RABBITMQ_DIR}/usr/lib64/erlang/bin/+' ${PARCEL_NAME}/usr/lib/rabbitmq/lib/rabbitmq_server-3.7.9/sbin/rabbitmq-defaults
 
 tar zcvf ${PARCEL_NAME}-${dist_suffix}.parcel ${PARCEL_NAME}
 
