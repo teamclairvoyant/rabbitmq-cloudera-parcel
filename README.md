@@ -1,3 +1,7 @@
+## Currently supported versions
+
+- RabbitMQ 3.7.9 with Erlang version 21.1.1
+
 ## Building a parcel
 
 1. Clone the repo using
