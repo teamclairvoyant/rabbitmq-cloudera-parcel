@@ -1,3 +1,4 @@
+#!/bin/bash
 parcel_version=$1
 echo "Installing RabbitMQ and its dependencies..."
 echo "Installing Erlang..."

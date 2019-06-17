@@ -24,9 +24,9 @@
 
   "users": {
     "rabbitmq" : {
-      "longname" : "rabbitmq",
+      "longname" : "RabbitMQ",
       "shell" : "/bin/bash",
-      "home" : "/home/rabbitmq",
+      "home" : "/var/lib/rabbitmq",
       "extra_groups" : [ "rabbitmq" ]
     }
   },
