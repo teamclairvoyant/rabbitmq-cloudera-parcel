@@ -1,27 +1,21 @@
-## Currently supported versions
+# RabbitMQ [Parcel](https://github.com/cloudera/cm_ext/wiki/Parcels:-What-and-Why%3F)
 
-- RabbitMQ 3.7.9 with Erlang version 21.1.1
+This repository allows you to install [RabbitMQ](https://www.rabbitmq.com/ as a parcel deployable by [Cloudera Manager](https://www.cloudera.com/products/product-components/cloudera-manager.html).
 
-## Building a parcel
+## Installing the Parcel
+0. First, install the [RabbitMQ CSD](https://github.com/teamclairvoyant/rabbitmq-cloudera-csd).  Then you can skip steps #1 and #2.
+1. In Cloudera Manager, go to `Hosts -> Parcels -> Configuration`.
+2. Add `http://archive.clairvoyantsoft.com/rabbitmq/parcels/latest/` to the Remote Parcel Repository URLs if it does not yet exist.
+3. In Cloudera Manager, go to `Hosts -> Parcels`.  RabbitMQ parcels and their respective verisons will be availble within the Parcels page.
+4. Download, Distribute, Activate the required parcels to use them.
 
-1. Clone the repo using
-    ```bash
-    git clone https://github.com/teamclairvoyant/rabbitmq-cloudera-parcel.git
-    ```
-2. Execute build_rabbitmq_parcel.sh using
-    ```bash
-    sh build_rabbitmq_parcel.sh <parcel_version>
-    ```
-3. Enter the Erlang and RabbitMQ versions when asked. You can enter `list_versions` to get a list of all the available versions. You can find the compatible versions of Erlang and RabbtiMQ `https://www.rabbitmq.com/which-erlang.html`. A `.parcel` and a `.sha` file will be generated. 
-4. Copy all your the files in the repository into a directory and generate manifest.json file using
-    ```bash
-    python make_manifest.py <Directory>
-    ```
-5. Upload the newly created parcel and the updated manifest.json into the repository.
+## Building the Parcel
+1. Install [Docker](https://www.docker.com/) and [Python](https://www.python.org/).
+2. Run the script `build_rabbitmq_parcel.sh` by executing:
+```bash
+./build_rabbitmq_parcel.sh --rabbitmq <rabbitmq_version> --erlang <erlang_version> --parcel <parcel_version>
+```
+RabbitMQ is only compatible with specific versions of Erlang.  See the [compatiblty list](https://www.rabbitmq.com/which-erlang.html) for details.
+3. Output will be placed in the target/ directory.
+4. Use `./serve_parcel.sh` to serve this directory via HTTP, or move the entire directory contents to your own webserver.
 
-
-## Installing the Parcels
-1. In the Cloudera Manager, go to `Hosts -> Parcels -> Configurations`.
-2. Add `http://teamclairvoyant.s3-website-us-west-2.amazonaws.com/apache-airflow/cloudera/parcels/` to the Remote Parcel Repository URLs.
-3. Rabbit parcel and its respective verisons will be availble within the parcels page. 
-4. Download, Distribute, Activate the required parcels to use them. 

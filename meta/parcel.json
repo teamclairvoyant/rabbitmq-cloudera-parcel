@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "RABBITMQ",
-  "version": "1.0.0-3.7.8-21.1",
+  "version": "VERSION",
   "setActiveSymlink": true,
 
   "depends": "",
@@ -13,14 +13,12 @@
   ],
 
   "scripts": {
-    "defines": "cdh_env.sh"
+    "defines": "rabbitmq_env.sh"
   },
 
-  "packages": [
-  ],
+  "packages": [],
 
-  "components": [
-  ],
+  "components": [],
 
   "users": {
     "rabbitmq" : {

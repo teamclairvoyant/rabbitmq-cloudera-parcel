@@ -1,0 +1,6 @@
+*.swp
+target/
+v*.tar.gz
+otp_src_*.tar.gz
+rabbitmq-server-*.tar.xz
+otp-*.patch

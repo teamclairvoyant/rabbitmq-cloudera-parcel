@@ -1,0 +1,26 @@
+{
+  "rabbitmq-plugins": {
+    "destination": "/usr/bin/rabbitmq-plugins",
+    "source": "bin/rabbitmq-plugins",
+    "priority": 10,
+    "isDirectory": false
+  },
+  "rabbitmq-server": {
+    "destination": "/usr/bin/rabbitmq-server",
+    "source": "bin/rabbitmq-server",
+    "priority": 10,
+    "isDirectory": false
+  },
+  "rabbitmqctl": {
+    "destination": "/usr/bin/rabbitmqctl",
+    "source": "bin/rabbitmqctl",
+    "priority": 10,
+    "isDirectory": false
+  },
+  "rabbitmq-conf": {
+    "destination": "/etc/rabbitmq",
+    "source": "etc/rabbitmq.dist",
+    "priority": 10,
+    "isDirectory": true
+  }
+}
