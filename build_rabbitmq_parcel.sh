@@ -93,6 +93,7 @@ if [ -z "$RABBITMQ_VERSION" ] || [ -z "$ERLANG_VERSION" ] || [ -z "$PARCEL_VERSI
 # main
 set -euo pipefail
 echo "*** Downloading Erlang/OTP ${ERLANG_VERSION} sourcecode ..."
+echo "*** Downloading Elixir ${ELIXIR_VERSION} sourcecode ..."
 echo "*** Downloading RabbitMQ ${RABBITMQ_VERSION} sourcecode ..."
 if command -v wget; then
   #wget -c "https://github.com/erlang/otp/archive/OTP-${ERLANG_VERSION}.tar.gz"
@@ -118,12 +119,10 @@ else
 fi
 if [ ! -d target ]; then mkdir target; fi
 
-#for DIST in centos6 centos7 debian7 debian8 ubuntu1404 ubuntu1604 ubuntu1804; do
-for DIST in centos6 ; do
+for DIST in centos6 centos7 debian8 ubuntu1404 ubuntu1604 ubuntu1804; do
   case $DIST in
     centos6)    PARCEL_DIST=el6    ;;
     centos7)    PARCEL_DIST=el7    ;;
-    debian7)    PARCEL_DIST=wheezy ;;
     debian8)    PARCEL_DIST=jessie ;;
     ubuntu1404) PARCEL_DIST=trusty ;;
     ubuntu1604) PARCEL_DIST=xenial ;;
